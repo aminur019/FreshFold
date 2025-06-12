@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshFold Laundry | Premium Pickup & Delivery Service</title>
+    <meta name="description" content="Professional laundry service with pickup and delivery. We handle wash & fold, dry cleaning, and ironing with care.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#06B6D4',  // Teal
+                        secondary: '#8B5CF6', // Purple
+                        accent: '#F59E0B',    // Amber
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #06B6D4 0%, #8B5CF6 100%);
+        }
+        .service-card:hover .service-icon {
+            transform: rotateY(180deg) scale(1.1);
+        }
+        .chat-bubble:hover {
+            transform: translateY(-5px);
+        }
+        input:focus, textarea:focus {
+            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.3);
+        }
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-white font-bold text-xl mr-2">FF</div>
+                <span class="text-xl font-bold text-gray-800">FreshFold</span>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-700 hover:text-primary transition">Home</a>
+                <a href="#services" class="text-gray-700 hover:text-primary transition">Services</a>
+                <a href="#pricing" class="text-gray-700 hover:text-primary transition">Pricing</a>
+                <a href="#how-it-works" class="text-gray-700 hover:text-primary transition">How It Works</a>
+                <a href="#testimonials" class="text-gray-700 hover:text-primary transition">Testimonials</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <button id="chat-button" class="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-primary hover:text-white transition">
+                    <i class="fas fa-comment-dots"></i>
+                </button>
+                <a href="#schedule" class="bg-primary text-white px-4 py-2 rounded-full hover:bg-opacity-90 transition shadow-md">
+                    Schedule Pickup
+                </a>
+                <button id="mobile-menu-button" class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="#home" class="text-gray-700 hover:text-primary transition py-2">Home</a>
+                <a href="#services" class="text-gray-700 hover:text-primary transition py-2">Services</a>
+                <a href="#pricing" class="text-gray-700 hover:text-primary transition py-2">Pricing</a>
+                <a href="#how-it-works" class="text-gray-700 hover:text-primary transition py-2">How It Works</a>
+                <a href="#testimonials" class="text-gray-700 hover:text-primary transition py-2">Testimonials</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 gradient-bg text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Laundry Made <span class="text-accent">Easy</span></h1>
+                    <p class="text-xl mb-8 opacity-90">We pick up, clean, and deliver your laundry right to your doorstep. Fresh, folded, and ready to wear!</p>
+                    <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+                        <a href="#schedule" class="bg-white text-primary px-6 py-3 rounded-full font-medium hover:bg-opacity-90 transition text-center shadow-lg">
+                            Schedule Pickup Now
+                        </a>
+                        <a href="#how-it-works" class="border-2 border-white text-white px-6 py-3 rounded-full font-medium hover:bg-white hover:bg-opacity-10 transition text-center">
+                            How It Works
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1604176354204-9268737828e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" 
+                         alt="Happy woman with fresh laundry" 
+                         class="rounded-lg shadow-2xl w-full h-auto object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="p-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-4xl font-bold text-primary mb-2">10,000+</div>
+                    <div class="text-gray-600">Happy Customers</div>
+                </div>
+                <div class="p-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-4xl font-bold text-secondary mb-2">24/7</div>
+                    <div class="text-gray-600">Customer Support</div>
+                </div>
+                <div class="p-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-4xl font-bold text-accent mb-2">98%</div>
+                    <div class="text-gray-600">Satisfaction Rate</div>
+                </div>
+                <div class="p-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-4xl font-bold text-primary mb-2">1-2</div>
+                    <div class="text-gray-600">Day Turnaround</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Our Services</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">We offer a comprehensive range of laundry services to meet all your needs.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="service-card bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon w-16 h-16 gradient-bg rounded-full flex items-center justify-center text-white text-2xl mb-6 mx-auto transition duration-500">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-3">Wash & Fold</h3>
+                    <p class="text-gray-600 text-center">Professional washing, drying, and careful folding of your everyday clothes.</p>
+                </div>
+                
+                <div class="service-card bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon w-16 h-16 gradient-bg rounded-full flex items-center justify-center text-white text-2xl mb-6 mx-auto transition duration-500">
+                        <i class="fas fa-umbrella"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-3">Dry Cleaning</h3>
+                    <p class="text-gray-600 text-center">Specialized cleaning for delicate fabrics and garments that require extra care.</p>
+                </div>
+                
+                <div class="service-card bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon w-16 h-16 gradient-bg rounded-full flex items-center justify-center text-white text-2xl mb-6 mx-auto transition duration-500">
+                        <i class="fas fa-iron"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-3">Ironing</h3>
+                    <p class="text-gray-600 text-center">Professional pressing and steaming to keep your clothes looking crisp and neat.</p>
+                </div>
+                
+                <div class="service-card bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon w-16 h-16 gradient-bg rounded-full flex items-center justify-center text-white text-2xl mb-6 mx-auto transition duration-500">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-3">Pickup & Delivery</h3>
+                    <p class="text-gray-600 text-center">Convenient scheduling with our reliable pickup and delivery service.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">How It Works</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Getting your laundry done has never been easier with our simple 3-step process.</p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80" 
+                         alt="Laundry process" 
+                         class="rounded-lg shadow-xl w-full h-auto object-cover">
+                </div>
+                
+                <div class="md:w-1/2 md:pl-12" data-aos="fade-left">
+                    <div class="flex mb-8">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center text-xl font-bold mr-4">1</div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Schedule Your Pickup</h3>
+                            <p class="text-gray-600">Book online or through our app and select a pickup time that works for you.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex mb-8">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 rounded-full bg-secondary text-white flex items-center justify-center text-xl font-bold mr-4">2</div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">We Clean Your Clothes</h3>
+                            <p class="text-gray-600">Our professionals handle your laundry with care using premium detergents.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 rounded-full bg-accent text-white flex items-center justify-center text-xl font-bold mr-4">3</div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Fresh Delivery</h3>
+                            <p class="text-gray-600">We return your clean, folded clothes at your preferred delivery time.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Simple, Transparent Pricing</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">No hidden fees. Pay only for what you need.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center mb-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Basic</h3>
+                        <div class="text-4xl font-bold text-primary mb-2">$1.50<span class="text-lg text-gray-500">/lb</span></div>
+                        <p class="text-gray-600">Standard service</p>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Wash & Fold</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>2-day turnaround</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Eco-friendly detergent</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-times text-red-400 mr-2"></i>
+                            <span>No ironing included</span>
+                        </li>
+                    </ul>
+                    <a href="#schedule" class="block text-center bg-primary text-white px-6 py-3 rounded-full font-medium hover:bg-opacity-90 transition">Get Started</a>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-xl border-2 border-primary transform scale-105 z-10" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center mb-6">
+                        <div class="bg-primary text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-3">MOST POPULAR</div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Standard</h3>
+                        <div class="text-4xl font-bold text-primary mb-2">$2.50<span class="text-lg text-gray-500">/lb</span></div>
+                        <p class="text-gray-600">Best value</p>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Wash & Fold</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>1-day turnaround</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Premium detergent</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Light ironing</span>
+                        </li>
+                    </ul>
+                    <a href="#schedule" class="block text-center bg-primary text-white px-6 py-3 rounded-full font-medium hover:bg-opacity-90 transition shadow-md">Get Started</a>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-center mb-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Premium</h3>
+                        <div class="text-4xl font-bold text-primary mb-2">$4.00<span class="text-lg text-gray-500">/lb</span></div>
+                        <p class="text-gray-600">Luxury service</p>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Wash & Fold</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Same-day service</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Hypoallergenic detergent</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Full ironing</span>
+                        </li>
+                    </ul>
+                    <a href="#schedule" class="block text-center bg-primary text-white px-6 py-3 rounded-full font-medium hover:bg-opacity-90 transition">Get Started</a>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12" data-aos="fade-up">
+                <p class="text-gray-600">Dry cleaning priced separately. <a href="#" class="text-primary font-medium hover:underline">View dry cleaning rates</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto bg-gray-50 rounded-xl shadow-md overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 gradient-bg p-8 text-white flex flex-col justify-center" data-aos="fade-right">
+                        <h2 class="text-3xl font-bold mb-4">Schedule Your Pickup</h2>
+                        <p class="mb-6">Fill out the form and we'll contact you to confirm your pickup time.</p>
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-check-circle mr-3 text-xl"></i>
+                            <span>Free pickup & delivery</span>
+                        </div>
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-check-circle mr-3 text-xl"></i>
+                            <span>Flexible scheduling</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle mr-3 text-xl"></i>
+                            <span>24/7 customer support</span>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2 p-8" data-aos="fade-left">
+                        <form id="schedule-form">
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div class="mb-4">
+                                <label for="phone" class="block text-gray-700 font-medium mb-2">Phone</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div class="mb-4">
+                                <label for="address" class="block text-gray-700 font-medium mb-2">Pickup Address</label>
+                                <textarea id="address" rows="2" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                            </div>
+                            <div class="mb-4">
+                                <label for="service" class="block text-gray-700 font-medium mb-2">Service Type</label>
+                                <select id="service" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                                    <option value="basic">Basic Wash & Fold</option>
+                                    <option value="standard">Standard Wash & Fold</option>
+                                    <option value="premium">Premium Wash & Fold</option>
+                                    <option value="dry_cleaning">Dry Cleaning</option>
+                                </select>
+                            </div>
+                            <div class="mb-6">
+                                <label for="instructions" class="block text-gray-700 font-medium mb-2">Special Instructions</label>
+                                <textarea id="instructions" rows="3" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-primary text-white px-6 py-3 rounded-full font-medium hover:bg-opacity-90 transition shadow-md">
+                                Schedule Pickup
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Methods Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Secure Payment Options</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">We accept all major payment methods for your convenience.</p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-white p-6 rounded-xl shadow-md flex items-center justify-center w-32 h-20 hover:shadow-lg transition">
+                    <i class="fab fa-cc-visa text-4xl text-blue-800"></i>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md flex items-center justify-center w-32 h-20 hover:shadow-lg transition">
+                    <i class="fab fa-cc-mastercard text-4xl text-red-700"></i>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md flex items-center justify-center w-32 h-20 hover:shadow-lg transition">
+                    <i class="fab fa-cc-amex text-4xl text-blue-500"></i>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md flex items-center justify-center w-32 h-20 hover:shadow-lg transition">
+                    <i class="fab fa-cc-discover text-4xl text-orange-500"></i>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md flex items-center justify-center w-32 h-20 hover:shadow-lg transition">
+                    <i class="fab fa-paypal text-4xl text-blue-600"></i>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md flex items-center justify-center w-32 h-20 hover:shadow-lg transition">
+                    <i class="fab fa-cc-apple-pay text-4xl text-gray-800"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">What Our Customers Say</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Don't just take our word for it - hear from our satisfied customers.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="testimonial-card bg-gray-50 p-8 rounded-xl shadow-md transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah J." class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Sarah J.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"FreshFold has been a game-changer for my busy schedule. My clothes always come back perfectly cleaned and folded. The app makes scheduling pickups so easy!"</p>
+                </div>
+                
+                <div class="testimonial-card bg-gray-50 p-8 rounded-xl shadow-md transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael T." class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Michael T.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"I've tried several laundry services, but FreshFold is by far the best. Their attention to detail is impressive, and my dress shirts come back looking better than ever."</p>
+                </div>
+                
+                <div class="testimonial-card bg-gray-50 p-8 rounded-xl shadow-md transition duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emily R." class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Emily R.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"As a mom of three, laundry was taking over my life. FreshFold's service is reliable and affordable. I love that I can schedule pickups around my busy days."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Find answers to common questions about our laundry service.</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="mb-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-white p-6 rounded-xl shadow-md cursor-pointer" onclick="toggleFAQ(1)">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-bold text-gray-800">How does pickup and delivery work?</h3>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300" id="faq-icon-1"></i>
+                        </div>
+                        <p class="text-gray-600 mt-3 hidden" id="faq-answer-1">We offer free pickup and delivery within our service area. Simply schedule a pickup time through our website or app, and we'll come to your home or office to collect your laundry. After cleaning, we'll return it to you at your preferred delivery time, folded and ready to wear.</p>
+                    </div>
+                </div>
+                
+                <div class="mb-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-white p-6 rounded-xl shadow-md cursor-pointer" onclick="toggleFAQ(2)">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-bold text-gray-800">What are your operating hours?</h3>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300" id="faq-icon-2"></i>
+                        </div>
+                        <p class="text-gray-600 mt-3 hidden" id="faq-answer-2">We offer pickup and delivery services 7 days a week from 8:00 AM to 8:00 PM. Our cleaning facility operates 24/7 to ensure quick turnaround times. Customer support is available 24/7 via phone, email, or in-app chat.</p>
+                    </div>
+                </div>
+                
+                <div class="mb-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-white p-6 rounded-xl shadow-md cursor-pointer" onclick="toggleFAQ(3)">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-bold text-gray-800">Do I need to be home for pickup/delivery?</h3>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300" id="faq-icon-3"></i>
+                        </div>
+                        <p class="text-gray-600 mt-3 hidden" id="faq-answer-3">No, you don't need to be home if you provide us with special instructions. Many customers leave their laundry in a secure location (porch, lobby, etc.) for pickup and specify a delivery location. We'll text you when we've completed both pickup and delivery.</p>
+                    </div>
+                </div>
+                
+                <div class="mb-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="bg-white p-6 rounded-xl shadow-md cursor-pointer" onclick="toggleFAQ(4)">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-bold text-gray-800">What safety measures do you have in place?</h3>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300" id="faq-icon-4"></i>
+                        </div>
+                        <p class="text-gray-600 mt-3 hidden" id="faq-answer-4">We take hygiene seriously. All laundry is washed at high temperatures with hospital-grade detergents. Our staff wears masks and gloves, and we sanitize all bags and equipment between uses. We also offer contactless pickup and delivery options.</p>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-up" data-aos-delay="500">
+                    <div class="bg-white p-6 rounded-xl shadow-md cursor-pointer" onclick="toggleFAQ(5)">
+                        <div class="flex justify-between items-center">
+                            <h3 class="font-bold text-gray-800">How do I pay for the service?</h3>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300" id="faq-icon-5"></i>
+                        </div>
+                        <p class="text-gray-600 mt-3 hidden" id="faq-answer-5">We accept all major credit cards, PayPal, and Venmo. Payment is processed securely through our website or app after your laundry is weighed and before delivery. You'll receive an itemized receipt with your clean laundry.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 gradient-bg text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6" data-aos="fade-up">Ready to Experience FreshFold?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto opacity-90" data-aos="fade-up" data-aos-delay="100">Sign up today and get your first pickup free!</p>
+            <div data-aos="fade-up" data-aos-delay="200">
+                <a href="#schedule" class="inline-block bg-white text-primary px-8 py-4 rounded-full font-bold hover:bg-opacity-90 transition shadow-lg text-lg">
+                    Get Started Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-white font-bold text-xl mr-2">FF</div>
+                        <span class="text-xl font-bold">FreshFold</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Making laundry day easier with our premium pickup and delivery service.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Wash & Fold</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Dry Cleaning</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Ironing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Pickup & Delivery</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Commercial Laundry</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Press</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Help Center</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Shipping Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2025 FreshFold Laundry Service. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Widget -->
+    <div id="chat-widget" class="fixed bottom-6 right-6 w-16 h-16 bg-primary rounded-full shadow-xl flex items-center justify-center cursor-pointer z-40" onclick="toggleChat()">
+        <i class="fas fa-comment-dots text-white text-2xl"></i>
+        <span class="absolute top-0 right-0 w-5 h-5 bg-accent text-white text-xs rounded-full flex items-center justify-center">3</span>
+    </div>
+    
+    <div id="chat-container" class="fixed bottom-24 right-6 w-80 bg-white rounded-xl shadow-2xl overflow-hidden z-50 hidden transform transition-all duration-300">
+        <div class="bg-primary text-white p-4 flex justify-between items-center">
+            <h3 class="font-bold">Customer Support</h3>
+            <div class="flex space-x-2">
+                <button class="text-white opacity-70 hover:opacity-100" onclick="minimizeChat()">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button class="text-white opacity-70 hover:opacity-100" onclick="toggleChat()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div id="chat-messages" class="p-4 h-64 overflow-y-auto bg-gray-50">
+            <div class="flex mb-4">
+                <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-2 flex-shrink-0">
+                    <i class="fas fa-user-tie text-xs"></i>
+                </div>
+                <div class="bg-white p-3 rounded-lg shadow-sm max-w-xs">
+                    <p class="text-sm">Hello! How can we help you today?</p>
+                    <p class="text-xs text-gray-500 mt-1">10:02 AM</p>
+                </div>
+            </div>
+            
+            <div class="flex mb-4 justify-end">
+                <div class="bg-primary text-white p-3 rounded-lg shadow-sm max-w-xs">
+                    <p class="text-sm">Hi! I'd like to check on my delivery status</p>
+                    <p class="text-xs text-white opacity-70 mt-1">10:03 AM</p>
+                </div>
+            </div>
+            
+            <div class="flex mb-4">
+                <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-2 flex-shrink-0">
+                    <i class="fas fa-user-tie text-xs"></i>
+                </div>
+                <div class="bg-white p-3 rounded-lg shadow-sm max-w-xs">
+                    <p class="text-sm">Sure! Could you please share your order number?</p>
+                    <p class="text-xs text-gray-500 mt-1">10:04 AM</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="p-3 border-t bg-white">
+            <div class="flex items-center">
+                <input type="text" placeholder="Type your message..." class="flex-grow px-3 py-2 border rounded-l-lg focus:outline-none focus:ring-1 focus:ring-primary">
+                <button class="bg-primary text-white px-4 py-2 rounded-r-lg hover:bg-opacity-90">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Chat widget toggle
+        const chatWidget = document.getElementById('chat-widget');
+        const chatContainer = document.getElementById('chat-container');
+        
+        function toggleChat() {
+            chatContainer.classList.toggle('hidden');
+            chatContainer.classList.toggle('scale-100');
+            chatContainer.classList.toggle('opacity-100');
+        }
+        
+        function minimizeChat() {
+            chatContainer.classList.add('hidden');
+        }
+        
+        // FAQ toggle function
+        function toggleFAQ(number) {
+            const answer = document.getElementById(`faq-answer-${number}`);
+            const icon = document.getElementById(`faq-icon-${number}`);
+            
+            answer.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+        
+        // Form submission
+        const scheduleForm = document.getElementById('schedule-form');
+        
+        scheduleForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you! Your pickup request has been submitted. We will contact you shortly to confirm your schedule.');
+            scheduleForm.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
